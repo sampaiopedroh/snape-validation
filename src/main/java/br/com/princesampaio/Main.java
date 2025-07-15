@@ -1,7 +1,7 @@
 package br.com.princesampaio;
 
 import br.com.princesampaio.docvalidator.DocumentoValidador;
-import br.com.princesampaio.docvalidator.model.ResultadoValidacao; // Assumi que o nome foi traduzido
+import br.com.princesampaio.docvalidator.model.ResultadoValidacao;
 
 import java.util.List;
 
@@ -13,8 +13,6 @@ public class Main {
         System.out.println("==============================================\n");
 
         // Lista de documentos para testar
-        // --- INÍCIO DA CORREÇÃO ---
-        // Removido o 'null' da lista, pois List.of() não permite elementos nulos.
         List<String> documentosParaTestar = List.of(
                 // --- CPFs ---
                 "85289398044",
@@ -39,17 +37,14 @@ public class Main {
                 "",
                 "   "
         );
-        // --- FIM DA CORREÇÃO ---
 
         // Itera sobre a lista e testa cada documento
         for (String doc : documentosParaTestar) {
             testarDocumento(doc);
         }
 
-        // --- INÍCIO DA CORREÇÃO ---
         // Teste dedicado para o caso nulo, que foi removido da lista.
         testarDocumento(null);
-        // --- FIM DA CORREÇÃO ---
     }
 
     /**
@@ -57,7 +52,6 @@ public class Main {
      * @param documento O documento a ser testado.
      */
     private static void testarDocumento(String documento) {
-        // Usa aspas para deixar claro quando a string é nula ou vazia
         String docFormatado = (documento == null) ? "null" : "\"" + documento + "\"";
         System.out.println("----------------------------------------------");
         System.out.println("Testando Documento: " + docFormatado);
